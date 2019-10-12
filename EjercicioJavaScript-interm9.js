@@ -7,12 +7,12 @@ function traer() {
     .then(data => {
       //console.log(data);
       let urls = data.results.map(function (pokemon) {
-        console.log(pokemon.url)
+        //console.log(pokemon.url)
         return pokemon.url
       });
 
       urls.forEach(function (element) {
-        //console.log(element);
+        console.log(element);
 
         fetch(element)
           .then(respuesta => respuesta.json())
@@ -28,11 +28,36 @@ function traer() {
             imagen.src = json.sprites.front_default
             nuevo.appendChild(imagen);
             imagen.addEventListener("click",function(){
-              console.log(this)
-              
+             //console.log(this)
+            // name = json.name
+             //altura = json.height
+             //peso = json.weight
+
+            var descripcion = document.querySelector('#desc');
+            var nuevaDescripcion = document.createElement("h4");
+            nuevaDescripcion.id = "Caracteristicas"
+            descripcion.appendChild(nuevaDescripcion);
+
+            var valores = document.createElement("div");
+            valores.id = json.name;
+            nuevaDescripcion.appendChild(valores);
+
+            var pok = document.createElement("img");
+            pok.src = json.sprites.front_default
+            valores.appendChild(pok); 
+            
+            var esc = document.createElement("p")
+            esc.innerHTML = 
+
+            "Nombre: " + json.name + "</br>" + 
+            "Peso: " + json.weight + "</br>" +
+            "Altura: " + json.height + "</br>" 
+           
+            valores.appendChild(esc)
             })
           } 
           );
+
       });
     })
     .catch(function (err) {

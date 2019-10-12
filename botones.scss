@@ -1,5 +1,18 @@
 .btn{
-    margin: 2px;
-    color:red;
+    color:white;
     background: black;
+    padding: 2em;
+    margin: 0 auto;
+    
+   
+}
+#boton:hover{
+    background-color: #E602FC ;
+}
+
+.informacion{
+    padding: 2em;
+    background: #E602FC ;
+    color: white;
+    text-align: center;
 }
